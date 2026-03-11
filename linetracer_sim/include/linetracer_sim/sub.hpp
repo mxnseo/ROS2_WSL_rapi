@@ -33,7 +33,7 @@ private:
     bool first_run_; // 첫 실행인지 확인할 플래그
     bool mode = false;
     geometry_msgs::msg::Vector3 vel;
-    double k = 0.2;
+    double k = 1.0;
 };
 
 #endif // SUB_HPP_

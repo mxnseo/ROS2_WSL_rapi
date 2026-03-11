@@ -208,14 +208,14 @@ void LineDetector::mysub_callback(const sensor_msgs::msg::CompressedImage::Share
         vel.y = 0;
     }
 
-    auto endTime = chrono::steady_clock::now();
-    float totalTime = chrono::duration<float, milli>(endTime - startTime).count();
-
-    RCLCPP_INFO(this->get_logger(), "Received Image : err:%d, leftvel: %.2f, rightvel: %.2f, time:%.2f ms", error, vel.x, vel.y, totalTime);
-
     pub_->publish(vel);
 
     cv::imshow("frame_color", frame_color);
     cv::imshow("frame_roi", result_view);
     cv::waitKey(1);
+    
+    auto endTime = chrono::steady_clock::now();
+    float totalTime = chrono::duration<float, milli>(endTime - startTime).count();
+
+    RCLCPP_INFO(this->get_logger(), "Received Image : err:%d, leftvel: %.2f, rightvel: %.2f, time:%.2f ms", error, vel.x, vel.y, totalTime);
 }

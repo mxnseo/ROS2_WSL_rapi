@@ -28,14 +28,14 @@ cv::Mat LineDetector::preprocess_image(const cv::Mat& frame_color) {
 
     // 밝기 보정
     cv::Scalar bright_avg = cv::mean(frame_gray); // 평균 밝기를 계산해서
-    frame_gray = frame_gray + (100 - bright_avg[0]); // 차이만큼 값을 더하거나 뺌
+    frame_gray = frame_gray + (120 - bright_avg[0]); // 차이만큼 값을 더하거나 뺌
 
     // 이진화
     cv::Mat frame_binary;
     cv::threshold(frame_gray, frame_binary, 130, 255, cv::THRESH_BINARY);
 
     // ROI 잘라서 리턴
-    return frame_binary(cv::Rect(0, 240, 640, 120));
+    return frame_binary(cv::Rect(0, 360, 640, 120));
 }
 
 // 라인 탐색
@@ -200,8 +200,8 @@ void LineDetector::mysub_callback(const sensor_msgs::msg::CompressedImage::Share
     }
 
     if (mode) {
-        vel.x = 100 - k * error;
-        vel.y = -(100 + k * error);
+        vel.x = 110 - k * error;
+        vel.y = -(110 + k * error);
     } 
     else {
         vel.x = 0;
@@ -213,7 +213,6 @@ void LineDetector::mysub_callback(const sensor_msgs::msg::CompressedImage::Share
     cv::imshow("frame_color", frame_color);
     cv::imshow("frame_roi", result_view);
     cv::waitKey(1);
-    
     auto endTime = chrono::steady_clock::now();
     float totalTime = chrono::duration<float, milli>(endTime - startTime).count();
 

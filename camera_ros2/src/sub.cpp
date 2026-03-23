@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     //auto qos_profile = rclcpp::QoS(rclcpp::KeepLast(10)).best_effort(); //UDP
     std::function<void(const sensor_msgs::msg::CompressedImage::SharedPtr msg)> fn;
     fn = std::bind(mysub_callback, node, _1);
-    auto mysub = node->create_subscription<sensor_msgs::msg::CompressedImage>("image/compressed",qos_profile,fn);
+    auto mysub = node->create_subscription<sensor_msgs::msg::CompressedImage>("image/compressed_12",qos_profile,fn);
     rclcpp::spin(node);
     rclcpp::shutdown();
     return 0;

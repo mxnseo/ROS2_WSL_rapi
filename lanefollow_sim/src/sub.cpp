@@ -33,7 +33,7 @@ cv::Mat LineDetector::preprocess_image(const cv::Mat& frame_color) {
     roi = roi + (100 - bright_avg[0]);
 
     // 이진화
-    cv::threshold(roi, roi, 150, 255, cv::THRESH_BINARY);
+    cv::threshold(roi, roi, 120, 255, cv::THRESH_BINARY);
 
     // first_run_ 시 초기 탐색 기준점: x축 1/4, 3/4 지점
     if (first_run_) {
@@ -114,7 +114,7 @@ void LineDetector::draw_result(cv::Mat& result, const cv::Mat& stats, const cv::
 
     for (int i = 1; i < labels; i++) {
         int area = stats.at<int>(i, 4);
-        if (area < 200) continue;
+        if (area < 100) continue;
 
         int left   = stats.at<int>(i, 0);
         int top    = stats.at<int>(i, 1);

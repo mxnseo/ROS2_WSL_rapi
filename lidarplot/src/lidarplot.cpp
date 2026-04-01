@@ -57,7 +57,7 @@ static void scanCb(sensor_msgs::msg::LaserScan::SharedPtr scan) {
         video_writer.open("lidar_video.mp4", cv::VideoWriter::fourcc('m', 'p', '4', 'v'), 10.0, cv::Size(result.cols, result.rows), true);
         
         if (video_writer.isOpened()) {
-            is_writer_initialized = true; // [핵심] 성공했으면 true로 바꿔야 함!! (이게 없어서 안됐던 것)
+            is_writer_initialized = true; // 성공했으면 true
             printf("Video Writer Initialized Successfully.\n");
         } else {
             printf("Failed to open Video Writer.\n");

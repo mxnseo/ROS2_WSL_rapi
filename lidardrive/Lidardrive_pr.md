@@ -41,7 +41,9 @@ ROS2 환경에서 카메라 이미지 및 LiDAR 스캔 데이터를 Raspberry Pi
 ---
 
 ## 3. ROS2 토픽 데이터 구조
+
 <img width="942" height="787" alt="image" src="https://github.com/user-attachments/assets/5d5d97ad-6157-4e2b-9325-53beff6468ae" />
+<img width="890" height="895" alt="image" src="https://github.com/user-attachments/assets/e8af8271-9297-4e2a-b1e4-e05a9fb05eb5" />
 
 ### `image/compressed_12`
 - **타입**: `sensor_msgs/msg/CompressedImage`

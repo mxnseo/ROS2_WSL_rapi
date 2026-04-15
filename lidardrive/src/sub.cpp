@@ -72,14 +72,14 @@ std::pair<int, int> LineDetector::find_target_line(const cv::Mat& roi, const cv:
     if (l_idx != -1) {
         tmp_pt_l = cv::Point(cvRound(centroids.at<double>(l_idx, 0)), cvRound(centroids.at<double>(l_idx, 1)));
     } else { // 못 찾았으면
-        tmp_pt_l = cv::Point(0, 0); // 왼쪽 맨 위 구석으로 좌표 던져버림
+        tmp_pt_l = cv::Point(0, 0); // 왼쪽 맨 위 구석으로 좌표 이동
     }
 
     // [좌표 업데이트] 오른쪽 객체 찾았으면 임시 좌표에 저장
     if (r_idx != -1) {
         tmp_pt_r = cv::Point(cvRound(centroids.at<double>(r_idx, 0)), cvRound(centroids.at<double>(r_idx, 1)));
     } else { // 못 찾았으면
-        tmp_pt_r = cv::Point(500, 0); // 오른쪽 맨 위 구석으로 좌표 던져버림
+        tmp_pt_r = cv::Point(500, 0); // 오른쪽 맨 위 구석으로 좌표 이동
     }
 
     // 왼쪽, 오른쪽 타겟 인덱스 쌍으로 묶어서 반환함

@@ -36,7 +36,7 @@ cv::Mat LineDetector::preprocess_image(const cv::Mat& result) {
 
 // 화면에서 양쪽 가장 가까운 장애물(타겟) 인덱스 찾는 함수임
 std::pair<int, int> LineDetector::find_target_line(const cv::Mat& roi, const cv::Mat& stats, const cv::Mat& centroids) {
-    int cnt = stats.rows; // 검출된 객체(덩어리) 총 개수 가져옴
+    int cnt = stats.rows; // 검출된 객체 총 개수 가져옴
     int l_idx = -1; // 왼쪽 타겟 인덱스 (-1은 아직 못 찾았단 뜻)
     int r_idx = -1; // 오른쪽 타겟 인덱스
     
@@ -224,7 +224,7 @@ void LineDetector::mysub_callback(const sensor_msgs::msg::LaserScan::SharedPtr s
     cv::Mat roi = preprocess_image(result);
 
     cv::Mat labels, stats, centroids;
-    // 이진화된 이미지에서 객체 덩어리들(라벨, 면적 크기, 중심점 등) 추출함
+    // 이진화된 이미지에서 객체들(라벨, 면적 크기, 중심점 등) 추출함
     cv::connectedComponentsWithStats(roi, labels, stats, centroids);
 
     // 타겟 찾는 함수 돌려서 양쪽 목표물 인덱스 가져옴

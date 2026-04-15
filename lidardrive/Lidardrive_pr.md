@@ -28,7 +28,7 @@ ROS2 환경에서 카메라 이미지 및 LiDAR 스캔 데이터를 Raspberry Pi
 | OS | Ubuntu 24.04 (RPI5) ↔ WSL2 Ubuntu 24.04 |
 | 미들웨어 | ROS2 Jazzy |
 | 통신 방식 | ROS2 Topic (KeepLast 10, Reliable) |
-| 알고리즘 | Connected Components + 오차 기반 속도 제어 |
+| 알고리즘 | 오차 기반 속도 제어 |
 
 ---
 

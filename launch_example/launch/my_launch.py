@@ -1,0 +1,33 @@
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+        package='launch_example',
+        namespace='launch_example1',
+        executable='pub',
+        name='pub'
+        ),
+
+        Node(
+        package='launch_example',
+        namespace='launch_example1',
+        executable='sub',
+        name='sub'
+        ),
+
+        Node(
+        package='launch_example',
+        namespace='launch_example2',
+        executable='pub',
+        name='pub'
+        ),
+        
+        Node(
+        package='launch_example',
+        namespace='launch_example2',
+        executable='sub',
+        name='sub'
+        )
+])

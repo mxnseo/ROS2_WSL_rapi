@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'my_first_ros_rclpy_pkg'
+package_name = 'gazebo_circle_pkg'
 
 setup(
     name=package_name,
@@ -10,7 +10,6 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/'+ package_name + '/launch', ['launch/myscript_launch.py']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -25,8 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'helloworld_publisher = my_first_ros_rclpy_pkg.helloworld_publisher:main',
-            'helloworld_subscriber = my_first_ros_rclpy_pkg.helloworld_subscriber:main',
+            'circle = gazebo_circle_pkg.circle:main',
         ],
     },
 )
